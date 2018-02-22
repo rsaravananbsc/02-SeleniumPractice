@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+  	<!--Filter's SMOKE TEST-->
+   	<groups>
+  	<run>
+  		<!--include name = "USER"> USER's SMOKE TEST </include-->
+  		<!--include name = "SMOKETEST"> SMOKE TEST </include-->
+  		<!--include name = "NEGATIVETEST"> NEGATIVE SMOKE TEST </include-->
+  		<!--include name = "NEGATIVETEST"> NEGATIVE SMOKE TEST </include-->
+  		<include name = "SUPERUSER"> SUPERUSER TEST </include>
+  	</run>
+	</groups>
+	<!--Filter's SMOKE TEST-->
+	
+    <classes>
+      <class name="_TestNG_ProductsUsers.Product"/>
+      <class name="_TestNG_ProductsUsers.Users"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

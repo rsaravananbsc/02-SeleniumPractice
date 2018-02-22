@@ -1,0 +1,47 @@
+SELENIUM Exceptions: 
+
+1. IllegaStateException - Java Unchecked. 
+
+We have to add Selenium jar to build path, Drivers file shold add in build path. To specify the path driver executable we use System.SetProperty(key,Value), we must set the path of executables always before opening the Broswer else we will get IlleegalStateExectpion.
+
+2. IntruputionException - Java Unchecked.
+
+3. AWTException (AWT - Abstract Window ToolKit)
+
+4. NoSuchElementsException
+
+5. InvalidSeletorException - Selenium Unchecked Exception. If Syntax is mistake. this Exception will occur.
+
+6. IOException - Java Checked Exception 
+
+7. InvalidElementStateException - If Elements are disbaled we gets this Exception.
+
+8. NosuchFrameElementException - If Frame is not Available in SourceCode. or maybe inside another Frames.
+
+9. NoAlertPresentException - If No alert popup are present on screen.
+
+10. WebDriverException - Generic Exception (Have to check the reason for Exception)
+
+11. NoSuchWindowException - Selenium UnChecked
+
+12. IndexOutofBoundsException - Java unchekced Exceptions 
+
+13. UnsupportedOperationException - Java unchecked Exception, when we use deselect method in SingleSelect ListBox
+
+14. StaleElementReferenceException - Selenium unchekced Exception - Address of Element is not Exist.
+
+15: TimeoutExpcetion - Selenium Unchecked Exception - When Timeout is over we go get Timeout Exception.
+
+16: TestNGException - For all errors we do get TestNG Expcetion.
+
+17. IOException - For Wrong FilePath, we do get this exception
+
+18. EncryptedDocumentException - If Excel file having Protected we do get this Exception 
+
+19. InvalidFormatException - Instead of using Excel Files, if use other format we do get this Exception
+
+
+
+
+
+

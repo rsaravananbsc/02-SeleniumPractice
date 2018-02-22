@@ -1,0 +1,74 @@
+Assignment:
+
+1. Write a Xpath for Price of Iphone7 from Flipkart.com
+2. Price of Business Class Ticket from Makemytrip.com
+3. Price of AlayaCloth from Myntra.com
+
+4. Write a Script to Open FaceBook Login page Select RadioButton is Selected.
+5. Write a Script to Verify License Link is a LINKCODE.
+6. Verify that Google Page google Logo is a Logo or Link?
+7. Write a script Client Version of Ruby present in Selenium Download Page
+8. Write a script to print value present in username textbox in demo.vtiger.com
+9. write a script to change the default value in username textbox in demo.vtiger.com
+10. Copy a username textbox value to another textbox. using sendkeys.keys.
+
+11. Write a Script to print location of element and also print size of an Element.
+12. Write Script to Verify username & password field are allign horizontally.
+13. Write a script to verify that username & password fields are same in Facebook.com
+14. Write a Script for invalid login scenario on Facebook.com
+
+15. Write a Automation Script for Invalid Login. 
+16. Write a Script to Find Green Color Msg in User Creation Page
+17. Write a Script to Find Red Color Msg in Login Page
+
+18. Write a Script to Scroll to Specific Element. Ex: Get the X,Y location of Element using it Scroll by Method of JSE.
+19. Write a Script to SCroll to Bottom of the Page.
+20. Write a script to login int Zoho Website(www.zoho.com)
+
+21. Write a Script to Navigate to Online Enrollement Menu in Foundation Menu in www.istqb.in
+22. Write a script to Compare 2 element Dimensions.
+
+23. Write a script to handling Confirmation popup on Actitime. (Actitime-task-AddNew-NewCustomer-EnterDetails-clickCancel-DisplaytextfromPOPUP)
+24.	Write a script to handling Confirmation popup on Actitime. (Create Customer-fill necessary details-click on cancel-print msg-CANCEL)
+25. Write a script to select Today's date in Calendar pop.
+26. Write a script to select Tomorrows Date in clearTrip.com
+27. Automate Following scenario (Actitime-Task-click on ALL-Delete selected Task-Print msg-click Cancel)
+28. Automate following scenario (Actitime-Settings-Logo&Colorscheme-UseCustomLogo-Browse&Select Image-SaveSettings) 
+
+29. Automate following Scenario(Actitime-Report-StaffPerformance-ExportCSV Report) - ChromeBrowser
+30. Automate following Scenario(Actitime-Report-StaffPerformance-ExportCSV Report) - FireFox
+
+31. Write a Script to Open the Naukri.com and count No of Browsers and close all Browsers.
+32. Write a Script to Open ActiTime and Count Browser and Close Input Browser Title.
+33. Write a Script to open NewTab enter the URL in Newtab in Chrome Browser.
+
+34. Count the Number of Link Present in Google.com
+35. Write a Script to Print of URL of all the Links
+36. Get input from user and Automate Google Search Engine
+37. Write a Script to Select all the Check box in Gmail.com
+38. Select Check boxes in Column of table where some of the check boxes are already checked needs to ignore.?
+39. Write a code print web table(grid) content.
+40. Write a code print only numbers present in a table.
+41. Write a Script to Selected Option from ListBox.
+42. Write a Script to check ListBox elements are Sorted or Not?
+43. Write a Script to print ListBox Content without Duplicates?
+44. Write a Script to print options present in the list box along with their Occurs Count?
+45. Write a script to print content of the list box without any repeating options
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

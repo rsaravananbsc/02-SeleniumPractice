@@ -1,0 +1,86 @@
+Introduction to Automation
+
+    What is Automation
+    Advantages & Disadvantage of Automation
+    When do we go for Automation
+
+Introduction to Selenium
+
+    What is Selenium?
+    Languages & Platform  supported by Selenium
+
+Basic Browser Handling
+
+    Launching Browser (Firefox,Chrome,IE,Safari…)
+    Handling Browser Navigation
+
+Locators
+
+    What is locator?
+    Locator types(tagName,id,name,className,linkText,partialLinkText,css,xapth)
+
+Synchronization
+
+    About Script Synchronization
+    Implicit wait
+    Explicit wait
+    Custom wait
+
+Handling WebElement
+
+    Different ways to perform actions on elements
+    Using getters and setters for validation
+    Handling Multiple Elements
+
+Handling Mouse events
+
+    Performing mouse hover action
+    Handling Drop down Menu
+    Performing Drag and Drop action
+
+Handling ListBox
+
+    Selecting options using different methods
+    Handling Multi select list box
+    Sorting the content of list box
+    Searching the list box
+
+Handling Popups
+
+    Introduction to types of popup
+    Techniques identify popup type
+    Handling different types of popup
+
+Page Object Model
+
+    Introduction to Page Object Model
+    Handling Elements (declaration, initialization and utilization)
+    @FindBy (annotation)
+    Page Decoration using Page Factory
+    Advantages of POM
+
+TestNG
+
+    TestNG annotations
+    TestNG reporting
+    TestNG Assertion
+    TestNG suite
+    Parallel execution
+    Parameter
+
+Automation FrameWork
+
+    What is Automation Frame Work
+    Why Frame work
+    Types of  Frame work
+    Designing Frame work
+    Implementation of Frame Work
+    Execution of Frame Work
+
+Automation Project
+
+    Implementing Frame work on Web Project
+    Automation workspace management using SVN
+    Challenges faced in Automation Project and Handling it
+
+Automation Life Cycle

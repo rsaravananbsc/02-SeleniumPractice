@@ -1,0 +1,1317 @@
+SELENIUM:
+
+Important Manual Test Concept with respective selenium : (Definition & Code Examples)
+1. Smoke Testing
+2. Functional Testing 
+3. Integration Testing 
+4. System Testing 
+5. Regression Testing (Important) - Unit, Regional, Full 
+
+1. STLC - Software Testing Life Cycle.
+2. DLC - Defect Life Cycle.
+
+Import Java Topics With Respective JavaSelenium (Definition & Code Examples)
+
+1. Class & Object
+2. Methods
+3. Encapsulation 
+4. Abstraction
+5. Polymorphsim
+6. Inheritance
+
+Important Programming Concepts:
+1. Methods of String Class (Length, CharAt, Char.. etc)
+2. Looping Statements (For, Enchanced For..Each, While, Do..While)
+3. Conditional Statements (If Statements, IF Else, Else, Switch )
+4. Collection Concept(List, Set, Map)
+5. Exception Handling ( Exception, Types, HandleException, Throw, Throws,Final, Finally, Finalise)
+6. Method Chaining & Code Optimization 
+( Process of Reduce No of Codes Statements by performing same action is called as code Optimization. To optimze a code Following 2 Condition is should be satisfied 
+1. There must common variables btw 2 statements 
+2. There must be an assignment operator for that common variable in the first statement
+
+Ex: Int i=10 S.O.P(10; int i =10; int j=20; int k = i+j; S.O.P(k); --> int i=10; int j=20 S.O.P(i+j); --> int i=10; S.O.P(i+20); S.O.P(10+20);
+Ex: String s ="Qspider"; int l = s.length; S.O.P(l); --> String s ="Qspider"; S.O.P(s.length);
+
+Code Optimization: 
+
+A a1 = new A();			A a1 = new A();			A a1 = new A();			S.O.P(new A().s.length());	
+String V = a1.s;		String V = a1.s;		S.O.P(a1.s.length());
+int l = V.length();		S.O.P(V.length());
+S.O.P(l);
+
+
+String V = A.s;			String V = A.s;			S.O.P(A.s.length());
+int l = V.length();		S.O.P(V.length());
+S.O.P(l);
+
+Explain System.out.println(); Example for MethodOverloading :
+
+Public class PrintStream				Public class System
+{							{	
+	Public void Println(int i)				Public static final PrintStream out = new PrintStream();
+	{							PrintStream v = System.out;
+								v.Println(123);
+	}						}
+	Public void Println(char c)			
+	{						System.out.Println(123);
+	
+	}
+}
+
+In Java PrintStream is a class which has overloaded methods such as Print & Println and they are Non-Static. In Java System is class where as out is a Public static final reference varibale of type PrintStream class.
+
+METHOD CHAINING:
+
+Class A					A a1 = new A()			A a1 = new A()
+{					String v = a1.getValue();	int l = a1.getValue().length()	--> Two methods are getting linking. Method Chaining
+String getValue()			int l = v.lenght();		S.O.P(l);
+{					S.O.P(l);
+  return "QSP"; 
+} 
+
+Process of calling multiple methods one after the others in same statements is called as Methods Chaining. In methods chaining Second Method will present inside the object which is return by First method and so on.in the above example length method present inside the String Object which is return by getValue() method. In General methods present in the chain will be Non-Static except the First Method(It  can be Non-Static or Static). Method Chaining is not posssible, If the following rules are 1.Return Type is Void 2.Returns Primitive Data Values 3. If Starts with Static cant be continue more than one Chain.
+
+Class A					
+{					String v = A.getValue();	S.O.P(A.getValue().length())	--> Two methods are getting linking. Method Chaining
+Static String getValue()		int l = v.lenght();		
+{					S.O.P(l);
+  return "QSP"; 
+} 
+
+SELENIUM Examples:
+Driver.Navigate().Refresh(); 
+Driver.Navigate().Back(); 
+Driver.Navigation().Forward();
+Driver.manage().timouts().implicitlywait(10);
+Driver.FindElement(b).click();
+
+SELENIUM: Definition:
+Selenium is a OpenSource web application automation tool.  
+
+Why selenium Required : 1. Freeware - Reduce Project Dev Cost. 2. OpenSource - Ease to customize 3.Supports All OS's - Platform Independent 4. Supports All Browsers - Support Compatibility Testing 5. Supports 13 Programming language - Ease to Learn & More Automation resuources.
+
+High-Level Architecture of SELENIUM:
+
+Language Bind		ServerSetup		Drivers(.exe)		Browsers			Application
+
+JAVA			SELENIUM	-->	ChromeDriver		ChromeBrowser		-->	
+ C#		-->	STANDALONE  -->	-->  	GecokDriver 		FireFoxBrowser	-->	-->	AUT(WEB APP's)
+PYTHON			SERVER		--> 	IEDriverServer		InternetExplorer	-->
+
+Selenium supports many languages such as Java,C#,Python and so on(13 counts) they called as language binding or client binding. these binding are communicates with SELENIUM server which performs actions on the browsers with the helps of browsers specific driver executables such as chormedriver for Google Chrome Browser, geckodriver for FireFox Browers and etc. Selenium users protocal called "JSON wire Protocal" JSON stands for "JAVA SCRIPT OBJECT NOTATION". 
+
+While installing SELENIUM, we required the Client Binding to write the Scripts and Server For managing the Scripts and Drivers Executbale for perform the actions. SELENIUM Servers internally contains Java Client Bindings als, Hence while installing with respective java language we use only SELENIUM SERVER Jar file and Drivers. 
+
+Use of System.SetProperty : is used to Set the WebDriver's path.
+
+Steps to See the SourceCode of Selenium:
+Example : Seeing the SourceCode of ChromeWebDriver
+Note: We should know that package name. Ex:org.openqa.selenium.chrome 
+1. Goto Selenum Download page(www.seleniumhq.org)
+2. Select the SourceCode Link (it will take www.github.com)
+3. Click on Java...Client...src...org/openqa/selenium
+4. Click on Chrome/FireFox/anyother
+5. ChromeDriver.java
+
+
+SELENIUM-JAVA Architecture. 
+
+SearchContext
+    |
+WebDriver	JavascriptExecutor	TakesScreenshot
+    :____________________:________________________:
+	        	 : 
+		  RemoteWebDriver
+		    |        |
+	    ChromeDriver   FireFoxDriver
+
+SerachContect is a Super most Interface which is extends by WebDriver interface is contains abstract contents of these 2 interfaces RemoteWebDriver Class. Remote WebDriver Class also implements other interfaces such as JavascriptExecutor,TakesScreenshot and so on. All the browser specific classes such as ChromeDriver, FireFox Driver and etc extends RemoteWebDriver Class.
+
+Methods of WebElements:
+
+1. Clear
+2. Click
+3. FindElement 
+4. FindElements
+5. GetAttribute
+6. GetLocation
+7. GetRect
+8. GetCSSValue
+9. GetScreenshotAs
+10. GetSize
+11. GetTagname
+12. GetText
+13. IsEnabled
+14. IsSelected
+15. Sendkeys
+16. Submit
+17. GetLocation
+
+
+UPcasting : Converting Subclass Object to any of its SuperClass Types is called as UPCasting. After Upcasting we can not access the methods which is present only on subclass. 
+
+Ex: 
+
+Class A
+{ 
+ void testA()
+ {
+ }
+}
+
+Class B extends A()
+{
+ void testB()
+ {
+ }
+}
+
+A a1 = new B();
+  a1.testA(); Can Access this Method.
+  a2.testB(); Cant Access
+
+
+UPCASTING: Converting Subclass Object to any of its SuperClass Types is called as UPCasting. 
+After Upcasting we can call any of the methods which are present in super type. 
+After Upcasting we can not call the methods which are present in only in the sub-class. 
+After Upcasting, if we call a methods which is present in parent and child both that will always executes the methods of child class.(Overridden Methods or Latest Methods)
+
+Example: 
+Class A				B b1 = new B() - Upcasting
+{				A a1 = b1;     - Referring to Super Class Type.
+ void TestA()			a1.TestA();  Can Access ( This methods can access because its present in super class)
+ { 				a1.TestB();  Can Access (This Methods gets OverRidden, Becuase its present in both class with same signature)
+  SOP("A1")			a1.TestC();  Cant Access (Because When child class refered to Super Class, can access only Super Class Mehtods only.)
+ }
+ void TestB()
+ { 
+  SOP("B1")			
+ }				B b1 = (B)a1;
+}				b1.TestA(); - A1
+				b1.TestB(); - B2 (overridden)
+Class B extends A		b1.TestC(); - C2 (Can access because we have done Explicit DownCasting)
+{
+ void TestB()
+ {
+  SOP(B2)
+ }
+ void TestC()
+ {
+  SOP(C2)
+ } 
+}
+
+TestA() method is present in Class A TestC() Present in Class A only. But TestB() is present in Class A & B Class. in above example TestC() methods is hidden after upcasting inorder to call hidden methods have to do Downcasting. 
+
+Downcasting : Converting upcasted object back to Sub-class Object. 
+
+POLYMORPHSIM; Object are methods with differ forms under different circumstances called as Polymorphsim. There are 2 types of polymorphism 1. CompileTime 2. RunTime.
+
+CompileTime Polymorphism : Methods overloading is example for CompileTime Ploymorphsim where compiler will link the statement which called the method with actual method of body. its also called as static poliymorphism.
+
+Example:
+
+Class A					Class B
+{					{
+ void TestA(int a)			 void abc(A a1)
+ {					 {
+  SOP(HI)  				   a1.TestA(123)
+ }					 }
+					}
+ void TestB(String s)
+ {
+  SOP(BYE)
+ }
+}
+
+
+Class			Can Create Reference		Can create Object
+Interface		Can Create Reference 		Cant Create Object
+Abstract Class		Can Create Reference 		Cant Create Object
+
+Example : 
+
+Interface A			A a1 = new B();			
+{				a1.TestA();  - HI
+ void TestA();
+}				A a = new C();
+				a1.TestA();  - BYE
+class B implements A
+{
+ void TestA()
+ {
+  SOP(HI)
+ }
+}
+
+class C implements A
+{
+ void TestA()
+ {
+  SOP(BYE)
+ }
+}
+
+Class D
+{
+ void abc(A a1)
+ a1.TestA();
+}
+
+When we try to compile the above code compiler will checks the Syntax first, and syntatically everything is correct. Then compiler try to link method calling statements with its body, but its not possible because there are many methods with same signature. Hence compiler will not link the statements. it should be done by JVM at Runtime 
+
+Example :
+Class E
+{
+ PSVM(string args[])
+ {
+  A a1 = new B();
+  D d1 = new D();
+  d.abc(a1);
+ }
+}
+
+Process of Linking calling statements with the method body during runtime byJVM is called as RunTime Polymorphism or Dynamic Binding. To achieve Runtime polymorphism following 3 steps are important 1.Inheritance 2. MethodOverRide 3.UPcasing.
+
+In Selenium we use UPcasting to run the same code on any browser. 
+Example : WebDriver driver = new FireFixDriver(); 
+
+WebDriver is an interface, Driver Refernece Variables, = Assignment operator, New  - keyword to create Object, FireFoxDriver() - Constructor of FireFoxDriver Class.
+
+1. Write a Script to Open the Browser ? Where Condition 1. SetProperty Statement should not be in main method. 2. Shouldnt call any other methods. 
+
+static
+{
+	System.setProperty("WebDriver.chrome.driver", ".//Drivers//chromedriver.exe");
+}
+
+public static void main(String[] args) 
+{
+
+	ChromeDriver driver = new ChromeDriver();
+	driver.close();	
+}
+
+StaticBlocks are executed before main method loaded in by ClassLoader. in this Example, First StaticBlock will execute which will set path of ChromeBrowser.
+
+In Selenium, there is no features to minimize the browser inroder to overcome this problem, we can use ShortcutKeys to minimize a window. To Type any characters/press any key from keyboard we can use Robot() class. Using Robot() class we can also control mouse pointer. 
+
+Example : Moving Mouse Pointer using Robot() class
+Thread.sleep(4000);
+Robot r = new Robot(); 
+for (int i = 0; i <=100; i=i+10) 
+{
+ r.mouseMove(50+i, 100);
+ Thread.sleep(500);
+}
+
+Robot() Class : If we cant perform any keyboard related actions using selenium then we can use Robot() class alternative options.
+
+Difference Between Close & Quit? 
+Close Method closes current browser, where as quit method close all the browsers.(Both Parent & Child).
+
+Get Method Performs 2 actions ?
+1. Enters the URL in the address bar and its wait till webpages till completely loaded.   
+
+How do you enter URL with using Get Method ? 
+driver.navigate().to("https://yahoo.com"); 
+
+Difference Between Get Method & To Method ?
+There is no difference betweek Get & To methods. becuase To methods internally calles Get() method.
+
+Difference Between Get() Method & Navigate() Method.?
+Get() method used to Enter the URL, Navigate() method used to perform the following action Back,Forward,Refresh,To.
+
+
+				Interface	AbstractClass	Class		
+Static Concrete Method 		No		Yes		Yes
+Non-Static Concrete Method	Yes		Yes		Yes		
+Non-Static Abstract Method	Yes		Yes		No
+
+WEBELEMENTS : Anything present on the webpages is called as web elements. such as TextBox,Buttons,Links,Images,ListBoxes, Tables and etc.
+Webelements are created by developers using HTML(HyperTextMarkupLanguage) in HTML, We use predefined words within <> AngleBrackets which are called tags. We end the the using Forwards Slash </> but ending all the tages are not manditory. HTML is not case sensitive to create a webpage Open a TextEditor, write the HTML codes save it with required location with the extension .html
+
+Example : Open --> Notepad --> Type the Following Code. Save it as Demo.html
+
+<html>
+<head><title>QSiper</title></head>
+<body>
+	<input type="text" placeholder="username">
+	<input type="password" placeholder="password">
+	<input type="button" value="Login">
+	<input type="checkbox">Remember <br>
+	<a href="https://gamil.com">Forget Password</a>
+</body>
+</html>
+
+Web elements contains following 3 components - 
+1. Tag 2.Attributes 3.Texts 
+Example for Tag: <html> <title> <body> <input> <br> <a>
+Example for Attribues: type="Text" PlaceHolder="username" value="Loing" href="https://google.com"
+Example for Text: Qspider, Remember, Forgot Password.
+
+Locators: Before performing any action we should find the elements using locators. 
+Locators are the Static Method of By Class which is an abstract class. In selenium 8 Types of Locators. 
+
+1. tagName - 
+	If Specified Locator matching with Multiple Elements then FindElement method will return address of First Matching Element.
+	If Specified Locator is not matching with any of the elements NoSuchElementsException will be throw.
+2. id -
+3. name
+4. classname
+5. linkText
+6. partialLinkText
+7. cssSelector
+8. xpath
+
+
+Difference LinkText & Partial LinkText: (Limitation of these Locators).
+
+we can use LinkText & Partial LinkText locators to locate only the links. If we try to use it on other type of element we get NoSuchElementsException Error. 
+
+Partial LinkText Locator : Can be use to locate the link which is partially changing
+
+Example : Gmail.com (inbox(20) is best example, Becuase Inbox is Static and Unread Mail counts Dynamic, so we can not use LinkText.
+
+CSSSelector : CSS Stands for Cascading Style Sheets, In selenium CssSelector is locator which has following syntax Tag[AttributeName='AttributeValue']
+
+Example : In LocatorWebpage, to locate the password field, present in the locatorwebpage.html we can not use TagName, we cannot use LinkText & PartialLinkText. In such scenario we can CssSeletor.
+<input type="text" name="username" value="" id="username" class="textField" placeholder="Username">
+ 
+in cssSelector # reprent ID, Dot represents Class.
+
+Limitation of Css - Its not support Text.
+
+driver.findElement(By.cssSelector("a[id='d1']"));
+driver.findElement(By.cssSelector("a#d1")); # //Represents ID
+driver.findElement(By.cssSelector("a[name='n1']"));
+driver.findElement(By.cssSelector("a[class='c1']"));
+driver.findElement(By.cssSelector("a.c1")); //. Represents Class
+
+
+XPath Selector : 
+Path of an Element in HTML Tree is called as XPath. In Xpath we use Single Forward Slash to specifiy the path and . in the starting on the path represents current webpages or current document. In Xpath we can use index which is starts from 1...
+
+in Sample Webpage, xpath("./html/body/input[1]")
+
+<html>
+<body>
+FN <input type="text"> <br><br>
+LN <input type="text">
+</body>
+</html> 
+
+Steps to Write Xpath in ChromeBrowser. 
+1. Open Required page in ChromeBrowser
+2. Press F12 Press Ctrl+F
+3. Type xpath expression, it will highlight the matching element. 
+
+Absolute Xpath : 
+Writing the Complete path of elements is called absoulte Xpath. 
+Example:
+<html><head>
+</head><body>
+<div>
+FN <input type="text" value="A"> <br><br>
+LN <input type="text" value="B"> <br><br>
+</div>
+<div>
+FN <input type="text" value="C"> <br><br>
+LN <input type="text" value="D"> <br><br>
+</div>
+</body></html>
+
+Absolute Xpath
+Matching Elements
+A B C D   		- /html/body/div/input
+A B 			- /html/body/div/input[1]
+A			- /html/body/div[1]/input[1]	
+B			- /html/body/div[1]/input[1]
+C 			- /html/body/div[2]/input[1]
+D			- /html/body/div[2]/input[2]
+C D 			- /html/body/div[2]/input
+A C			- /html/body/div/input[1]
+B D			- /html/body/div/input[2]
+A D			- /html/body/div[1]/input[1]|/html/body/div[2]/input[2]
+
+Pipeline | Symbol is used to merge two expressions.
+
+Relative Xpath
+Matching Elements
+A B C D   		- //input
+A B 			- //div[1]/input
+A			- //div[1]/input[1]
+B			- //div[1]/input[2]
+C 			- //div[2]/input[1]
+D			- //div[2]/input[2]
+C D 			- //div[2]/input
+A C			- //div/input[1]
+B D			- //div/input[2]
+A D			- //div[1]/input[1] | //div[2]/input[2] 
+B C			- //div[1]/input[2] | //div[2]/input[1]
+A B C			- //div[1]/input | //div[2]/input[1]
+A C D			- //div[1]/input[1] | //div[2]/input
+
+Pipeline | Symbol is used to merge two expressions.
+
+What is the Difference Between / and // ? 
+Single Slash (/) represents child Double Slash(//) Descended Path. derive xpath which matches all the links and imahges present on the webpages. 
+
+What are the types of the Xpath available ?
+There are 2 types of Xpath 1. Absolute 2. Relative 
+
+Xpath by Attributes : 
+While identifiying element  using xpath we should avoid using index because index can be changes or Index can be moved. If identified required element we can use Attribute of Element. 
+Example : /html/body/div/input[@value='B'], //input[@value='B']
+
+We can include multiple attributes  in same xpath using (AND OR NOT) operators. 
+Example : input[@name='username'], input[@name='username' and @id='username'], input[@name='username' or @name='email'], input[not@name='username'] 
+
+Xpath By Text: 
+Syntax for Xpath by Text - Tag[text()='textvalue']
+If there is no Attributes for elements or Attributes is duplicates then we can identified the element using text()='textvalue' 
+Example : 
+//div[text()='Login'] This is have no Attributes  
+//div[text()='REPORTS'] This is Duplicates Attributes
+
+Xpath By Contains:
+If Attributes value or Text Values is partially changing, is very lengthy, is having &nbsp(non breakable space). then we use contains functions. the Syntax is 
+Tag[contains(text(),'AttributeValue')]
+Tag[contains(@Attribute,'AttributeValue')]
+
+Xpath for version present in LoginPage
+//nobr[contains(text(),'actiTIME')]
+Xpath for Logo Present in LoginPage
+//img[contains(@src,'timer')]
+Xpath for Error Msg in Login Page
+//span[contains(text(),'invaild')]
+Xpath for buildno present in HomePage(help-about)
+//span[contains(text(),build')]
+
+Create a Demo.html with the following code & Write Xpath
+<span> Delete&nbsp:Task</span>
+//span[contains(text(),'Task') and contains(text(),'Delete')]
+//span[contains(text(),'Task')]
+
+Q:How to handle dynamic link with out partialLinktext?
+<a>Inbox(23)</a>
+Ans : //a[contains(text(),'Inbox')]
+
+Xpath AXES:(dynamic Xpath or Advanced Xpath)
+
+Xpath AXES of Special word used for traversing(navigating from one element to another element), following are the important AXES
+1. child
+2. descendant 
+3. parent
+4. ancestor
+5. following-sibling
+6. preceeding-sibling
+
+Sample Webpages:
+<html>
+<body>
+<div>
+<select multiple size="7">
+<option>Idly</option>
+<option>Vada<</option>
+<option>Poori</option>
+<option>Dosa</option>
+<option>Upma</option>
+<option>Roti</option>
+<option>Parota</option>
+</select></div></body></html>
+
+
+1.CHILD : 
+child::html --> /html
+
+2.Decendant:
+decendant::select   --> //select
+
+3.Parent:
+//option[text()='Idly']/parent::select  --> //option[text()='Idly']/..
+
+4.Ancestor:
+//select.ancestor::html  --> No Shortcut
+
+5.Following-Sibling:
+//option[.='Dosa']/following-sibling::option  
+//option[.='Dosa']/following-sibling::option[1]
+//option[.='Dosa']/following-sibling::option[1+1]  
+//option[.='Dosa']/following-sibling::option[last()-1]  
+
+6.Preceeding-Sibling:
+//option[.='Dosa']/preceding-sibling::option  
+//option[.='Dosa']/preceding-sibling::option[1] 
+//option[.='Dosa']/preceding-sibling::option[1+1]  
+//option[.='Dosa']/preceding-sibling::option[last()-1] 
+
+Independant, Dependant Xpath : (Important Concept)
+If a element is completely dynamic, then we can identify it by traversing from nearby StaticElement. This concept is called as Independant & Dependant Xpath.
+
+Example: Sample Webapage
+<table border="1">
+<tr>
+	<td>Java</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>SQL</td>
+	<td>200</td>
+</tr>
+</table>
+
+Xpath to identify price of Java(300). in this example Price of Java is compeletely Dynamic. 
+//td[.='Java']/../td[2]
+//td[.='Java']/following-sibling::td
+
+We can use following-sibling or Preceeding-sibling, only if both the elements are under the same parent. If ther are under parents we should use backward&Forward traverse technicques for that we need to construct HTML Tree.
+
+While constructing HTML Tree, we should include independant element & Dependant Element & Common Parent.
+Sample HTML Tree
+
+Steps to Write Independant Elements 
+1. Inspect the Independant Elemetns & note down the source code.
+2. Place the mouse pointer the source code of independant Element, then move the mouse pointer in the upward direction its highlights both independant and dependant elements. 
+3. Element which highlight both independant & dependant elements is called as CommonParent Elements, add its path above the independant element. 
+4. Use arrow keys, navigate from CommonParent to Dependand element, and add its path in below the CommonPatents. 
+
+Example : Xpath for ClientVersion of Ruby in Present in SeleniumDownload Page.
+//td[.='Ruby']/../td[2]
+//td[.='Ruby']/../td[3]
+
+Write the Xpath to Download Link of Phyton from Selenium Webpage.
+//td[.='Phyton']/../td[4]/a
+
+Write a Xpath For actiTIME Webpage.
+A. Status of 'testing' - //a[.='testing']/../../td[2] (or) //a[.='testing']/ancestor::/td[2]/a
+
+B. set by default link of testing - //a[.='testing']/../../td[4]/a (or) //a[.='testing']/ancestor::/td[4]/a
+
+
+Xpath by GroupIndex: In Xpath by group index, we specify in Xpath expression inside the brace and then this specified index outside the Brace. In this case First its executes the Xpath present in the brace and it will store the matching elements inside xpath Array and then Index Specified outside the Brace is applied on the Xpath Array.
+Example : (//input)[1] and (//input[2])[1]
+
+Html			Xpath Array	Answers		
+    Body		A 1		A
+        Div		B 2		B
+         Input		C 3
+	 Input		B 4
+	Div 
+	 Input
+ 	 Input
+
+Xpath by Position()
+//a		(//a)[last()]			(//a)[position() mod 2=0] All EvenLinks
+//a[1]		(//a)[last()-1]			(//a)[position() mod 2=1] All OddLinks
+(//a)[1]	(//a)[position<=3]
+(//a)[5]	(//a)[position>last()-3]
+
+Important Locators: 
+1.ID 
+2.Name 
+3.Linktext 
+4.Xpath
+  Attriubutes
+  Text()
+  Contains()
+  Independant & Dependant 
+  Grouping
+
+Interview Question:
+-------------------
+1. What is process following in your projects to handle a Element.?
+
+2. Which one is better CSS or Xpath ? 
+Performance - CSS is First XPath is Second (CSS is better than Xpath)
+CSS is Independant of Browser, where as xapth is Dependant of Browser. i.e Xpath using browser may not work in other Browser.
+Features - Xpath is better than CSS. Becuase CSS do not support Text(), Parent, Ancestor, GroupIndex
+
+3. What are the different between CSS & Xpath?
+		Xpath 			CSS
+Performanece 	Slow			Faster
+Browser		Dependand		Independant 
+Features	Text() Supported	Text() NotSupported
+		Parent Supported	Parent NotSupported
+		Ancestor Supported	Ancestor NotSupported
+		GroupIndex Supported	GroupIndex NotSupported
+
+
+
+
+
+Xpath - CSS Conversion:
+XPATH 						CSS
+-------------------				----------------------------
+/html/body/div					html>body>div
+//a						a
+//table//a					table a (btw space required)
+//a[@id='a1']					a[id='a1'] or a#a1
+//a[@class='c1']				a[class='c1'] or a.c1 
+
+//*[@id='a1']					#a1
+//*[@class='c1']				.c1
+//a[contains(@src,'Time')]			a[src*='Time']
+
+//option[@id=d1]/following-sibling::option	option#a1+option
+//option[@id=a1]/preceding-sibling::option	option#a1~option
+
+//input[1]					input:nth-child(1)
+
+-------------------------------------------------------------------------------
+
+//a[text()='abcd']				Not Supported (Due to its having Text() fucntion)
+//a[contains(text(),'abcd')]			Not Supported (Due to its having Text() fucntion)
+//a/..						Not Supported 
+//a/ancestor::div				Not Supported
+(/a)[1]						Not Supported (Due to Grouping Funtions)	
+
+In CSS Writing Tag is not manditory. (* Means any Tag) (# Means ID) (. Means Class) (*= Means Contains) (+ means Following-Siblings) (~ Means Preceding-sibling)
+
+AXES of Xpath & CSS
+AXES			XPATH 				CSS
+--------------------	-------------------		----------------------------
+Child 			
+Decendant
+Parent
+Ancestor
+Following-Sibling
+Preceding-Sibling
+
+Write a Script to ActiTime?
+1. Set the Driver path
+2. Open Browser
+3. Enter the URL(wait till pages loaded)
+4. Verify that Login Page Displayed
+5. Enter Valid UserName & Password Click on Login Button (Wait till page is loaded)
+6. Verify that Home Page Displayed
+
+1. How to handle Disabled Elements.
+inroder to avoid data mismatch on the element of Date Of Birth, Developer has been disabled that Element and Provided the external DatePicker, as DOB Field diabled we could not able to make actions and Calender Pop-up dont support by Selenium. Hence so We were used JSE(JavaScriptEexecutor from package of Org.openqa.Selenium) enter the data on DOB field and perform the actions automatically.
+
+1. JAVA SCRIPT EXECUTOR
+JSE is one of the interface in Selenium, its used to execute the JavaScript from Selenium. Steps to execute JS Manually. Open Required Page in Browser, Click on Inspect Element and goto Console Tab, Type JAV SCRIPT Statements, and press Enter.
+
+Ex: alert('HI'); SemiColon is Required for Continous lines of Script. Single Line Commands not required SemiColon.
+Ex: v = document.getElementById('i2').value; alert(v);
+
+
+1.What are the uses of JavaScriptExecutor. 
+Is used to perform the action if element is disabled. Its used to scroll webpage.
+
+
+In Java, we can  make args of a method options by using concept called Variable Argument.
+
+//Its support any no of String types.
+	public static void testA(String... args)
+	{
+		for (String string : args) {
+			System.out.println(string);
+		}
+	}
+	
+	//Its support any no of Object types.
+	public static void testA(Object... args)
+	{
+		for (Object string : args) {
+			System.out.println(string);
+		}
+	}
+
+JavaScriptExecutor will not allow us to locate the element using LinkText, PartialLinktext, CSS Selector, and Xpath. 
+If element is disabled, then we use JavaScriptExecutor to handle it. but if the disabled element need to locate by Xpath. we use selenium(FindElement), to locate disabled element using Xpath. we send the Address of element as commandLine Arguments for JavaScript.In JavaScript we the variables "arguments[]" to receive it. The First CommandLine arguments is stored under arguments[0], arguments[1].. and so on.  
+
+Handling Frames:
+Webpages present inside another webpages is called embedded webpage. Developers, uses iFrame Tag to create Embedded webpage. If the element is inside the frameFirs we should tranfer the control into the frame before finding the element we use following statement. Index start from 0.
+
+Driver.switchto.frame(arg)
+
+in the above method Frame method is overloaded, it takes a argument of type(int,string,webelement). Hence we are switch inside a frame by using (1.Index of Frame 2.Attributes of Frames(ID,Class,Name, Address and etc)).
+
+Inorder to exit from the Frame, we can use following statement.
+driver.switchTo().defaultContent();
+driver.switchTo().parentFrame();
+
+Nested Frame: Frames inside Frames is called Nested Frames.
+driver.switchTo().defaultContent(); - used to come to MainPage. 
+driver.switchTo().parentFrame(); - used to come to one step up.
+
+If the Page is refreshed or Newpage is loaded, Frames control will be lost and comes to DefaultPage(main page)
+
+Actions Class:
+1. What are the use of Action Class
+MouseHover-MoveToElement.
+Drag&Drop
+Context Click 
+Composite Action
+DoubleClick
+2. In which package Actions class is Present.
+Interactions Package
+
+Handling Popups:
+In Selenium popup are categorized into 
+1. Javascript popup (alert popup,Confirmation popup)
+	Cant inspect this Popup
+	Cant move this popup
+	White Background with Black Font
+	it have OK Button(Alert Pop) or it have OK,CANCEL button(Confirmation popup)
+	it is easy to identify in FireFox browser. 
+2. Hidden Division popup
+	Cant move this pop
+	Can inpect this pop
+	its colorful
+	Calendar Popup are example for Hidden Division Popop.
+3. File Upload Popup
+	We Cant Inspect the Popup
+	We Can move the Popup
+	Pop have title FileUpload
+
+	Please specify Absoute path of the file as a Arguments. for Sendkeys Method. Sendkeys used for Upload Button or Browse Button. (i.e) the element on which if we 	click,we get fileupload path. we cant use relative path sendkeys method, if we try to use we get WebDriver Exception(Path is not absoulte). 
+4. File Download popup
+	We cant inspect the Popup
+	We can move the Popup
+	No need to Handle popups in ChromeBrowser(Automatically file will be download in Chrome)
+	FireFox we have to Handle FileDownload Popup. 
+5. Child Browser Popup
+	We can inspect the Popup
+	We can move the Popup
+	Its colorful
+	It will have Minimize,Maximise,Close Buttons
+	It May have AddressBar
+
+	to Handle this popup, we use Driver.Switchto.Window("StringArgs")
+6. Window Popup
+	If the Popup displayed in the application is not JavaScriptPopup, Hidden Division Popup, FileUpload & Download, ChildBrowser Popup. Someof the Windows Popup 	
+	can be Inspect & Move. In Selenium there is no option to handle window popups, Hence we use alternative Methods 
+	1)Robot 2)AutoIT 3)Sikuli 4)Winium 5)OTP(UFT) 6)RFT 7)LDTP
+
+	Inorder to perform basic actions such as Pressing Enter,Esc and so we can use Robot Class in Selenium. Ex:Handling Print window Popup.
+		WebDriver driver = new FirefoxDriver();
+		Robot r = new Robot();
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_P);
+		r.keyRelease(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_ENTER);	
+
+Q: How do you handle Window Popup in your project?
+A: In my project, when we click on generate report button it will display printer window popup, we have handled using AutoIT.
+Q: Why did you choose AutoIT. 
+A: Its Freeware, Handle Window basesd Application, Easy to Intergrate with Selenium, Easy to Script.
+
+
+Handle Window Based Application(AutoIT):
+Its a Free, window based automation application tool.
+
+Inorder to user Relative path, GetAbsoulte Method file Class. 
+
+What is WindowHandle?
+Its having Unique AlphaNumeric of the Browser.
+
+What is difference between GetWindowHandle, GetWindowHandles?
+GetWindowHandle - returns window handle of current browser(String), Whereas 
+GetWindowhandles - returns window handle of All the browsers(Set<String>). 
+
+What is different Between Close(), Quit()?
+Close() - Close CurrentBrowser
+Quit() - Close all the Browser
+
+
+HANDLING MULTIPLE ELEMENTS:
+To Perform actions on multiple elements, we use findElements() method. Which returns type is  List<webelement>. List must drive from java.util.list. 
+
+WebDriver driver = new ChromeDriver();
+driver.get("http://localhost/login.do");
+List<WebElement> element = driver.findElements(By.xpath("//a"));
+int count = element.size();
+System.out.println("Count of Links in ActiTime Page:"+count);		 
+		
+ for (int i = 0; i <= element.size(); i++) {
+ WebElement link = element.get(i);
+ System.out.println(link.getText());
+}
+
+Q: Difference between FindElement & FindElements?
+A: FindElment				FindElements
+Returns 1st match element		All matching elements
+Returns Type WebElement			Return type is List<WebElement>
+If element not found - Exception	Empty List
+
+Q: Select Checkboxes in Column of table where some of the checkboxes are already checked needs to ignore.?
+A: Programs038 in Assignment
+
+Handling ListBox:
+to Perform action on listbox, we use Select Class. which should be import from Selenium.Support.ui.Select.
+Select Class has Parameterized constructor which takes arguments of WebElement. 
+
+Methods in Select Class
+1.SelectByIndex - int
+2.SelectByValue - String
+3.SelectByVisibleText - String
+
+4.deselectByIndex - int
+5.deselectByValue - String
+6.deselectByVisibleText -String
+7.deselectAll
+
+8.isMultiple - Boolean
+
+9.getAllSelectedOptions
+10.getFirstSelectedOption
+11.getOptions
+
+deselect by methods can be use only on MultipleSelect ListBox. if we try to use on SingleSelect ListBox we get Exception. to check whether listbox is SingleSelect or MultiSelect isMultiple method which returns boolean true mean - MultiSelect false-SingleSelect.
+
+If specified argument (Index,Value,Text) is invalid, we get NoSuchElementException. For Both Select & DeSelect Methods.
+If specified Text,Value is duplicate then it will select all possible matching options in MultiSelect listbox. or If select first mathcing in SinglSelect listbox. to handle duplicates options we can use index.
+
+Q: Count No of Options in ListBox and Print all of them. 
+
+
+MAP Collection: 
+in map values are stored with key instead of keys. while creating a map, we should specify DataTypes of Both key,Value.
+key can not be duplicates and key is case Sensitive. To add the value in MAP, we use put() methods, to retrieve the 
+value we use Get() methods for both methods we have specified keys. To check whether required key is present or not.
+we use methods methods containkeys which returns boolean values.(If keys present : True or False).
+Inorder to get all the keys present in map, we use the methods keyset() methods which returns all the keys present in MAP
+set of Strings. The key type not always String its depends on they keyType of MAP.
+
+
+Automation FrameWork:
+Encapsulation: Hiding internal state and requiring all interactions to be performed through an object's methods is known as data
+encapsulation.
+
+Package bank								Package bank								
+ 
+public class A{								public c{
+private int b;								public static void main(String args[]){
+public A(int i){							A a1 = new A(1000);
+b=i;									a1.getBalance();
+}											
+									A a1 = new A(1000);
+public void getBalance(){						a1.getBalance();
+System.out.println(b)							//System.out.println(a1.b)
+}											}
+}											}
+
+
+While developing a method, do not hartcode any inputs. use method paramenters whereever is possible. 
+
+Q: What is StaleElementReferenceException?
+A: It means reference(address) of the element is old(stale).
+
+Q: When do we get Stale Element Reference Exception?
+A: Between findelement, performing action if page gets refershed or reloaded we do get StaleElementReference Exception.
+
+Ex: unTB=driver.findElement(By.id("username"));
+driver.navigate().refresh();
+unTB.sendKeys("admin");
+
+Q: How do you handle StaleElementReference Exception?
+A: Using POM(Page Object Model), in POM if address of element is change, it automatically finds the new address adn then perform the actions.
+using POM class we can handle only StaleElementsReference Exceptions only.Other Exceptions such a NosuchElement Exceptions, ElementNotVisible Exception should be handle explicityly. 
+
+POM is one of the Java Designed pattern. its used to develop and Test webpages. In selenium we use POM for following reasons. 
+1. To handle StaleElement Reference Exception.
+2. To Encapsulate the elements. 
+3. Write a Automation scripts in organized way
+4. To Maintain Element Repository.
+
+In POM, we Declare the element using the @FindBy(Locator="Value"') Private WebElement UNTB;
+
+Syntax of FindBy
+
+Single Element : @FindBy(Locator="Value") private WebElement elementname
+Multiple Element : @FindBy(Locator="Value") private List<WebElement> listname
+
+In POM we initialize this elements using PageFactory Class.
+
+In POM Class - POM Class, Test Class
+
+1. POM Class is have Elements collection.
+2. TestClass - Executable class (with mainmethod).
+3. No of POM Classes will be same as no of webpages present in the application.
+4. No of TestClasses will be same as No of manual TestClasses which are selected for Automation. 
+
+POM Class Name will be ended with name "Page".
+POM class is called as ElementReposiotryClass or PageObjectRepository Class
+POM Class is not support variables as in LocatorValue, It will accept only ConstantValue. Hence we can use Final Keyword.
+Ex: 
+final String s="username"; @FindBy(id='s') private WebElement unTB;  - Right
+String s="username"; @FindBy(id='s') private WebElement unTB;  - Wrong
+@FindBy(id='username') private WebElement unTB;  - Right
+
+Q: What happens if we do not use InitElements.
+A: We do get NullPointerException
+
+Q: What is difference between PageObjectModel & PageFactory
+A: POM is one the JavaDesginPattern. Pagefactory is Class where used to initialize Elements present in POM Class.
+
+
+Synchronization:
+Process of matching Selenium Speed with application is called Syncronization. If application is slow then find element methods will throw NoSuchElement Exception Eventhough specified locator value is Current. inorder to handle this we use ImpllicitylyWait() statement as shown below.
+
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+TimeUnit can be Days,Hours,Minutes,Seconds,MilliSeconds,MicroSeconds,NanoSeconds.
+
+FindElements and FindElements statements control comes to findelements, it check wheather specifued element is present or not. If its present Findelement will return 1st Matching Address of Element. FindElements will return All Macthcing Address of Elements. If Elements is not present then it will check for the itmeout if the time is over findElement will thow NoSuchElement Expcetion, FindElements will return EmptyList. 
+
+If time is not over then it waits for 500 MilliSeconds and continue to Search for the elements. 500 Miliseconda is called as Polling Period which is present in FluentWait Class.
+
+Using implicitlyWait we can handle syncronization of only FindElement & FindElements methods. NoSuchElementException. 
+in order to handle Syncronization of other methods and to handle other types of exceptions we use ExplicitWait.
+WebDriverWait is called Explicitwaits becuase we specify the waiting conditionexplicitly. Flow Diagram of ExplicitWait. 
+Wait.Until Conditions it checked the Conditions if Conditions is true it goes to next statement, if Condition is false its checks for TimeOuts. If TimeisOver, it will throw TimeOutException.
+
+ExpectedConditions is Predicates. TitleContains - Condition.   
+
+Q: Difference between ImplicitWait & ExplicitWait
+
+	ImplicitWait							ExplicitWait
+1.	We Can handle Syncronization of all FindElement			We can handle syncronization of all other methods 
+ 	FindElements Statements. 					but Only one at a time.
+
+2.	We do not specify Wait Condition				We Should specify Condition using Wait.Until 
+
+3. 	TimeUnit can be Day,Hours, Mins, Secs, Msecs, MiSecs, NSecs	Timeunit can be only Seconds. 	
+
+4. 	After Timeouts, we do get NoSuchElement Exception or 		After Timeout we go get TimeoutException
+	EmptyListExceptions					
+
+Q: How do you handle Sync of FindElement, FindElements without ImplicitWait Method?
+A: ExplicitWait
+
+TestNG: Its tool to automate TestScript. 
+Test NextGeneration, is an unit testing FrameWork used by both Developers & Automation Engineers. In Selenium we use TestNG to execute Multiple TestClasses and to Generate the execution Result. 
+
+TestNG is class its Contains @Test annotation. while Developing TestNG Class d not use DefaultPackage, Main method, SOP(Sys.out.Printlin). 
+Ex: 
+package qsp;
+import org.testing.Reporter;
+import org.testing.annotations.Test
+
+public class DemoA{
+@Test
+public void testA()
+{
+  Reporter.Log("HI",true) //Here True Means Msg will prints at Console as well as HTML, False Means only on HTML.
+}
+
+Q: Important Annotations of TestNG
+A: @BeforeMethod @AfterMethod, @BeforeClass @AfterClass, @BeforeTest @AfterTest, @BeforeSuite @AfterSuite, @DataProvider
+
+
+@BeforeMethod executed before the execution of @Test everymethod. similarly @AfterMethod executed after the execution of every @Test methods.
+
+Q:How do you execute Selected TestCase in TestNG?
+A: by using TestNG Group we can run only selected TestCases
+
+Q:How do you execute except one modules 
+A: using exclude Options we can skip moudles from run.
+
+Q:How do you execute a method irespective of specified Group name 
+A: using AlwaysRun = True 
+
+Q:How do you skip specifi test method
+A: by using Enabled=False can skip specified methods. 
+
+Q:What is default status of Test Methods?
+A: Default Test Result is Pass.
+
+Q:How do you make status as Fail.
+A: using Assert.Fail()
+
+Q:How do you perform Verification in TestNG?
+A: using Assert.assertEquals(aTitle, eTitle);
+
+XSLT is a Tool used to Add Graphics of TestNG Reports. 
+ReportNG 
+
+Assert						SoftAsset
+It will not allows to exeute further,		It will execute further execution even tests failed. 
+if Comparion failed
+
+All the methods are static methods		All the methods are Non-Static methods.
+
+we do not call assertall() Method 		We must have called assertAll()
+
+Q: How Do you execute a Testmethod after executing someother TestMethods
+A: Using Priority we can prioritze the Test runs execution.
+
+Q: How do you execute a Testmethod only after someother TestMethod is passed?
+A: Using DependsonMethods. 
+ex: @Test(dependsOnMethod="registerUser")
+ex: @Test(dependsOnMethod={"Login","registerUser"})
+
+Q: How do you send a value from TestNG.xml into TestMethod present TestNG Class
+A: Using parametes methods we can pass the value from XML to Code
+
+Q: what is different between Assert and verify? 
+A: These are commands of Selenium IDE where they use for Compariosn purpose. If the comparison failsassert will stop the current test. where as Verify will continue the current test. Selenium IDE has 100 of Assert and Verify statement. Ex: AssertTitle, VerifyTitle, AssertText, VerifyText.
+
+Q: How do you re-run only Failed Test?
+A: By using TestNG-Failed.XML which is located at Test-output folder.
+
+
+Handling ExcelFile:
+In selenium to execute the scripts with multiple inputs we take the inputs from excel sheet, this process is also called as Data Drivern Testing. Inorder to Excel file we use API given by Apache POI-Poor Obfuscation Implementation. it can be download from (https://poi.apache.org/download.html).
+
+In POI we have different methods to read different data types present in excelsheet.
+Ex: 
+GetCellStringValue - to get String value
+GetNumericCellValue - to get Numeric Value
+GetDateCellValue - to get Data Value
+Instead of using different methods we can use toString methods to get all types of data from File.
+
+Generic Methods: The methods which can be used for any project and any application called as generic methods. Ex: Reading Data from Excel Sheet
+
+
+Automation Framework:
+Automation Framework is a standard rule and guidelines which is followed by all the automation engineers while converting manual testcase to automation testscript.
+
+First Automation framework will be design by Architect(automation lead or Automation manager) based on their experience, then all the automation engineers convert manual testcase into automation scripts which is called as framwork implementation. 
+
+Automation Framework Design:
+Architect specifies below Points:
+1. Standard Files $ Folder Structure
+2. Rules to write automation script
+3. Reusable Libraries
+ 
+Based on design Framwork works are called as in different names. such as 
+1. Keyword Driven Automation Framework
+2. Data Driven Automation Framework 
+3. Module Driven Automation Framework 
+4. Method Driven Automation Framework
+5. Behaviour Driven Automation Framework(BDD)
+6. Hybrid Automation Framework
+
+1. Standard Files $ Folder Structure
+   Standard Files Required.
+   JDK
+   Eclipse with TestNG
+   Selenium JAR File
+   Driver ExecutableFile
+   Browsers
+   AUT(Application Under Test)
+   MS Office
+   POI Lib (Apache)
+   AutoIT
+
+   Folder Structure
+   
+
+Methods Inheritance Annotation:
+For Every Testcase we create a TestClass (i.e) if had 1000 testcases we create 1000 testclasses. In Every testclass there are some common codes such as OpenBrowser, Enter the URL, SetTimeout, CloseBrowser these steps will not only increased no of codes but also increase maintainence (i.e) If we want change the URL Browser we should change 1000 times. to avoid repetation of code, we develop methods for code reusability. 
+
+We develop repeating steps as methods and we have called these methods in all the TestCalsses - Improvements Code Maintainence is Reduce. If any changes required we need to change on one place. Ex: URL Changed we can change in one method, No of Line codes also reduced. 
+
+Inorder to call the methods, without creating a Object we use inhertance(Method Reuseability) it is as good as writing the methods in all the Test Classes.
+
+To Execute method without calling explicitly we use TestNG Annotations such as @BeforeMethod @AfterMethod 
+
+
+Abstract Class in Framework:
+in our framework we have used, inheritance for methods resuability. that is we created a class with the name "BaseTest" and we develop 2 methods with @BeforeMethod @AfterMethod annotations. This class is used only fr inheritance purpose and for the direct execution, to indicate that that class is imcomplete we made it as Abstract Class
+
+Interface is Framework:
+in our automation framework, some of the values will never change such as driver executable key, value, path of files and folders and etc. to indicate that these values will never change we declare as constants and we use interfaces to store this value as Constants, because by default all the variables in interfaces are always Public static final.
+
+Q: How do you manage Applicaiton URL changed?
+A: Change the URL in Properties Files. 
+
+
+Automation Implementation:
+Converting Manual testcase into Automation scripts using the Framework is called as Automation framework implemenation. while converting manual testcase we develop 2 Types of classes is POMClass, TestClass. 
+
+Q: Do you Automate all the test cases ?
+A: No
+
+Q: Which TestCase you converted?
+A: Regression testcases we automated,
+
+Q: How do you know Which TestCase is Regression?
+A: Its given by manual testing team. 
+
+Q: Will you automate SmokeTestcase, Negative Testcases, Integration Testcase,
+A: Yes, if its part of regression suite. 
+
+Q: Which testcase you automate first?
+A: Smoke TestCase i make automate first. 
+
+Q: Do you automation Ad-Hoc TestCase?
+A: No, we cant automate ad-hoc.
+
+Q: What are the all the scenarios, features we cant automate?
+A: Authetication Access Cards, BarCode Scanner, CreditCard Swipe, OTP, Multimedia Verification. CAPTCHA's. 
+
+Q: Is it 100% Automation is possible?
+A: No, due to above reason. 
+
+Q: In your project, Totally how many testcases you have ? how many are Regression.
+A: 3500
+
+Q: Till today How many testcases been automated in the project?
+A: 2000
+
+Q: How many testcases you have automated in your project?
+A: 320
+
+Q: How many testcases automated per day. 
+A: 2-3 
+
+
+
+Sample Regression Testcase:
+1. Valid Login
+	Enter Valid username
+	Enter valid Password
+	Click on Login Button. 
+	Verify that HomePage is displayed.
+
+2. InValid Login
+	Enter the invalid username
+	Enter invalid password 
+	Click on login Button
+	Verify Error msg is displayed. 
+
+3. Check Product Version
+	Enter Valid username
+	Enter valid Password
+	Click on Login Button. 
+	Verify that HomePage is displayed.
+	Click on Help
+	Click on About your actiTime
+	Verify that Production is Displayed? 
+	Click on Close Buttoon.
+	Click on Logout.
+
+Developing POM Class
+Guidelines:
+1. Execute given testcase manually so that we get more clarify on steps which is to be automate.
+2. While executing Testcase notedown the page, elements present on the page and action to be perform on those elements. 
+3. Develop POM Class for Each webpage with Decllation Initization, Utilization. 
+
+Page No1: Login Page
+Elements : UNTB, PWTB, LOGIN BTN, Error MSG.
+Action: Enter UN, Enter PW, Click Login, Verify Error MSG.
+
+
+Page No2: Enter TimeTrack Page
+Elements : Help, About your Actitime, Product Version, Close BTN, Logout
+Action: Verify Title, Click Help, Click About your Actitime, Verify Product Version, Click Close BTN, Click Logout. 
+
+
+Rules to Develop POM Class:
+1. No of POM Class should be same as No of Pages.
+2. For Everypage we should create a POM Class inside Page Package.
+3. Name of the class should be same as respective PageTitle Ending with work Page. 
+4. Inside POM class we should declare the elements find by FindBy annotation, initializ using PageFactory, Utilizing using Public Methods.
+
+
+If any method of TestNG, takes parameter then its manditory to run the TestNG from testNG.XML file.
+
+Optional Parameter Options is used, when there is no Value stored under TestNG parameter.
+
+@Parameters("city")
+@Test
+public void testA(@Optional("Pune") String s){
+Reporter.log(s,True);
+}
+
+
+OldCode : public void openApplication(String browser)
+NewCode : public void openApplication(@Optional("chrome")String browser)
+
+
+Rules for Developing TestClass:
+1. For each Manual testcase we should create a class inside Script package with name same as Manual TestCase ID. 
+2. Class should extends BaseTest Class.
+3. Class should contain a method with @Test annotation and name of the methods should start with word test.
+4. Test Method should have respective priority and group.
+5. Inside Test method First Write manual testcase step as commands. so that we will not skip any steps. 
+6. Below each commands call the respective method of POM Class. 
+7. Execute the Script ensure that its working fine. 
+8. Findout No input is required for Script. Create testdata in the Excel file.(input.xlsx) ensure that name of the sheet is same as TestClass Name. 
+9. Colunm header are in FirstRow, TestData's are 2 Second Rows onwards. 
+10. Read these testdata inside the testmethod using getCellValue method of Excel Class, and replace all the hardcoded inputs with excel parameters. 
+11. Execute the Script again to ensure that is working fine.
+
+Right Click on the respective Scripts --> goto Team --> Select Commit --> Specify the Comments -->> AddtoIndex Click Commit&Push. 
+
+CV Points:
+1st-Page: 
+ 
+1. Locators -- xpath -- axes
+2. Handling Elements - Actions Class, Select Class, PopUps, JSE, TakeScreenShot 
+3. Multiple Elements, Synchronization, POM Class, TestNG, Grid, Maven, Jenkins, Automation Framework, GitHub, POI, File Input.
+
+2nd Page:
+Projects Details.
+Roles & Responsibilities - Responsible for TestCases, Developing POM Class, Developing TestCalss, Preparing TestData, Managing framework using github, Configuraing Maven, Setup Grids for RC, Integrating framework with jenkins, Review automation scripts. debugging testscripts, Preparing automation execution report. preparing daily status report, preparing automation framework related help documents.preparing automation related ppts, participating automation related meetings, providing automation demo to clients. Providing automation KT for new joinees, involved in degising automation framkwork, involved customazation of automation framework.
+
+3rd Page:
+Personal Details 
+
+Q: If you need to framework on Different browsers and Different OS? 
+A: testng.xml file
+
+Q: If URL of build is changed where do you update?
+A: Settings of URL.
+
+Q: If selenium version is changed where do you will change ?
+A: do need to update, we are using Maven. 
+
+Q: if username & password is changed where do you update?
+A: Input.xls file
+
+Q: in your framework how did you handle SteelException? 
+A: using POM class. its also called as POM Framework. 
+
+Q: In your framework how you are multiple testscripts and generatining?
+A: Using testNG Parallel. its also called as testng Framework. 
+
+Q: How do you execute only selected Testscripts? or in your framework how do you test specific modules? 
+A: Using TestNG groups. this is also called as module driven framework.
+
+Q: How do you execute scripts present with multiple inputs?
+A: using excel sheet files. 
+
+Q: Which framwwork in your framework ?
+A: Hybird framework (Module Drivern, DataDrivern, POM, TestNG, Method Driven)
+
+Q: where the framework is stored?
+A: Online Repository Github
+
+Q: where the scripts executed?
+A: Node 
+
+Q: How do you execute the framework ? 
+A: Using POM.xml
+
+Q: When do you run your automation Framework ?
+A: When we get a new Build. 
+
+Q: When do you get build ?
+A: in out project we do get build once in a build.
+
+Q: How do you execute scripts automaticalled when you get a build ?
+A: by using Jenkins.
+
+
+Jenkins: Jenkins is called as Continous Integration Testing tool. use by developers to create & manage the builds. Jenkins installed & configured by developers and build is created by developers. in automation framework we just integration with jenkins. jenkins is web application. 
+
+Jenkins Steps: Integration Framework with jenkins 
+1. Enter the URL of Jenkins 
+2. Enter the UN & PW and login
+3. Goto New Item --> Enter the Project Name --> Select Build Type(maven project) -->> Click OK.
+4. In Tab of SourceCodeManagement --> Select Git --> Specify Repository URL.
+5. Bulid Trigger : -->> Build after other projects are built -->> Select the Name of the Development Project. 
+
+Steps to Framwork from jenkins:
+Login into jenkins
+Click on Devlopment project
+Click on Build Now (When Developer click on build now -- First it will create a build and installed the build). its will download automation framwork scripts from github and execute POM.XML file. POM.XML file upadte the jar files and start the execute scripts. test.xml file will be run the scripts on node systems and result will be stored in Jenkin Server and result can be see from any system.
+
+
+Review My CV - javagalbhanu@gmail.com 

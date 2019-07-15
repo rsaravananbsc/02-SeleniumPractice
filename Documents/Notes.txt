@@ -324,10 +324,10 @@ Difference Between Get() Method & Navigate() Method.?
 Get() method used to Enter the URL, Navigate() method used to perform the following action Back,Forward,Refresh,To.
 
 
-				Interface	AbstractClass	Class		
-Static Concrete Method 		No		Yes		Yes
-Non-Static Concrete Method	Yes		Yes		Yes		
-Non-Static Abstract Method	Yes		Yes		No
+							Interface	AbstractClass	Class		
+Static Concrete Method 		No			Yes				Yes
+Non-Static Concrete Method	Yes			Yes				Yes		
+Non-Static Abstract Method	Yes			Yes				No
 
 WEBELEMENTS : Anything present on the webpages is called as web elements. such as TextBox,Buttons,Links,Images,ListBoxes, Tables and etc.
 Webelements are created by developers using HTML(HyperTextMarkupLanguage) in HTML, We use predefined words within <> AngleBrackets which are called tags. We end the the using Forwards Slash </> but ending all the tages are not manditory. HTML is not case sensitive to create a webpage Open a TextEditor, write the HTML codes save it with required location with the extension .html
@@ -961,7 +961,7 @@ If time is not over then it waits for 500 MilliSeconds and continue to Search fo
 
 Using implicitlyWait we can handle syncronization of only FindElement & FindElements methods. NoSuchElementException. 
 in order to handle Syncronization of other methods and to handle other types of exceptions we use ExplicitWait.
-WebDriverWait is called Explicitwaits becuase we specify the waiting conditionexplicitly. Flow Diagram of ExplicitWait. 
+WebDriverWait is called Explicitwaits becuase we specify the waiting condition explicitly. Flow Diagram of ExplicitWait. 
 Wait.Until Conditions it checked the Conditions if Conditions is true it goes to next statement, if Condition is false its checks for TimeOuts. If TimeisOver, it will throw TimeOutException.
 
 ExpectedConditions is Predicates. TitleContains - Condition.   
